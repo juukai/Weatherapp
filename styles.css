@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.search {
+    margin-top: 200px;
+}
+
+.weather {
+    margin-top: 50px;
+}
+
+.weather-icon {
+    width: 350px;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    margin: 0 10px;
+}
+
+.column img {
+    width: 50px;
+}
+
+#temp {
+    font-size: 50px;
+}
+
+#city {
+    font-size: 50px;
+}

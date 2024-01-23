@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sääappi</title>
+</head>
+
+<body>
+
+    <div class="hakupalkki">
+        <div class="search">
+            <input type="text" id="city-input" placeholder="Kirjoita kaupungin/maan nimi.." spellcheck="false">
+            <button id="search-button">Hae</button>
+        </div>
+
+        <div class="paikka">
+            <h1 id="city">Paikka</h1>
+        </div>
+        <div class="weather">
+            <img src="images/clear.png" class="weather-icon" id="weather-icon">
+            <h1 id="temp">Lämpötila</h1>
+
+            <div class="details">
+                <div class="column">
+                    <img src="images/humidity.png">
+                    <div>
+                        <p class="humidity" id="humidity">X %</p>
+                        <p>Kosteus</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <img src="images/wind.png">
+                    <div>
+                        <p class="wind" id="wind">X km/h</p>
+                        <p>Tuuli</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
