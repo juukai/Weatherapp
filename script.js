@@ -54,5 +54,7 @@ function getWeatherIcon(weather) {
             return 'thunderstorm';
         case 'Mist':
             return 'mist';
+        case 'Fog':
+            return 'fog';
     }
 }
