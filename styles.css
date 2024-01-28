@@ -7,15 +7,16 @@ body {
 }
 
 .search {
-    margin-top: 200px;
+    margin-top: 40px;
 }
 
 .weather {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .weather-icon {
-    width: 300px;
+    width: 150px;
+    margin-top: 10px;
 }
 
 .details {
@@ -32,11 +33,12 @@ body {
 }
 
 #temp {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 #city {
-    font-size: 50px;
+    font-size: 35px;
+    margin-bottom: 10px;
 }
 
 #feels-like {
@@ -63,4 +65,16 @@ body {
 
 #search-button:hover {
     background-color: hsl(106, 84%, 35%);
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.banner img {
+    width: 400px;
+    height: auto;
 }
