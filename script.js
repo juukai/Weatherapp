@@ -1,3 +1,10 @@
+// Kuuntelija DOMille
+document.addEventListener('DOMContentLoaded', function() {
+    // Piilotetaan säätiedot
+    document.querySelector('.paikka').style.display = 'none';
+    document.querySelector('.weather').style.display = 'none';
+});
+
 // Kuuntelija hakupainikkeelle
 document.getElementById('search-button').addEventListener('click', function() {
     const city = document.getElementById('city-input').value;
@@ -29,12 +36,17 @@ function fetchWeatherData(city) {
 function updateWeatherDetails(data) {
     document.getElementById('city').textContent = data.name;
     document.getElementById('temp').textContent = data.main.temp + ' °C';
+    document.getElementById('feels-like').textContent = '(Tuntuu kuin ' + data.main.feels_like + ' °C)';
     document.getElementById('humidity').textContent = data.main.humidity + ' %';
     document.getElementById('wind').textContent = data.wind.speed + ' km/h';
 
     // Haetaan sääkuva datasta ja luodaan polku kuvalle
     const weatherIcon = getWeatherIcon(data.weather[0].main);
     document.getElementById('weather-icon').src = `images/${weatherIcon}.png`;
+
+    // Tuodaan säätiedot näkyviin
+    document.querySelector('.paikka').style.display = 'block';
+    document.querySelector('.weather').style.display = 'block';
 }
 
 // Palauttaa sään kuvan annetujen tietojen perusteella
