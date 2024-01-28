@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("pinkki.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .search {
@@ -12,7 +15,7 @@ body {
 }
 
 .weather-icon {
-    width: 350px;
+    width: 300px;
 }
 
 .details {
@@ -38,4 +41,26 @@ body {
 
 #feels-like {
     font-size: 20px;
+}
+
+#city-input {
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 13%;
+}
+
+#search-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: hsl(106, 84%, 41%);
+    color: white;
+}
+
+#search-button:hover {
+    background-color: hsl(106, 84%, 35%);
 }
