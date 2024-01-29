@@ -11,6 +11,13 @@ document.getElementById('search-button').addEventListener('click', function() {
     fetchWeatherData(city);
 });
 
+// Kuuntelija hakukentälle
+document.getElementById('city-input').addEventListener('keypress', function(event) {
+   if (event.keyCode === 13) { // 13 = Enter-näppäin
+    fetchWeatherData(this.value); // Suoritetaan haku annetuilla arvoilla
+   }
+});
+
 // Funktio hakee säädatan API:sta
 function fetchWeatherData(city) {
     const apiKey = '6d7af184bdc191fcc0635ee39590a743';

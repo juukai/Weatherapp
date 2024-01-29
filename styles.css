@@ -50,7 +50,7 @@ body {
     padding: 10px 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    width: 13%;
+    width: 60%;
 }
 
 #search-button {
@@ -75,6 +75,18 @@ body {
 }
 
 .banner img {
-    width: 400px;
+    width: 500px;
     height: auto;
 }
+
+.content-wrapper {
+    background-color: rgba(214, 90, 142, 0.8);
+    padding: 20px;
+    padding-bottom: 45px;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 425px;
+}
+
