@@ -5,6 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.weather').style.display = 'none';
 });
 
+// Etsitään hakukenttä elementti
+const cityInput = document.getElementById('city-input');
+
+// Lisätään click-tapahtumakuuntelija hakukenttään
+cityInput.addEventListener('click', function() {
+    // Tyhjennetään hakukenttä kun se klikataan hiirellä aktiiviseksi
+    this.value = '';
+});
+
 // Kuuntelija hakupainikkeelle
 document.getElementById('search-button').addEventListener('click', function() {
     const city = document.getElementById('city-input').value;
@@ -23,6 +32,13 @@ function fetchWeatherData(city) {
     const apiKey = '6d7af184bdc191fcc0635ee39590a743';
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fi`;
 
+        // Lisätään tarkistus, onko hakukenttä tyhjä
+        if (city.trim() === '') {
+            alert('Anna kaupungin/maan nimi ennen haun suorittamista.');
+            resetWeatherDetails();
+            return;
+        }
+
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -36,24 +52,64 @@ function fetchWeatherData(city) {
         })
         .catch(error => {
             console.error("Virhe haettaessa säätietoja: ", error);
+            alert('Säätietoja ei löytynyt. Tarkista kaupungin/maan nimi ja yritä uudelleen.');
+            resetWeatherDetails();
+
+        // Tyhjennä hakukenttä virheilmoituksen jälkeen
+            document.getElementById('city-input').value = '';
         });
+}
+
+function resetWeatherDetails() {
+    document.querySelector('.paikka').style.display = 'none';
+    document.querySelector('.weather').style.display = 'none';
 }
 
 // Päivitetään sivun elementteihin saatu säädata
 function updateWeatherDetails(data) {
     document.getElementById('city').textContent = data.name;
-    document.getElementById('temp').textContent = data.main.temp + ' °C';
-    document.getElementById('feels-like').textContent = '(Tuntuu kuin ' + data.main.feels_like + ' °C)';
+    const temperature = Math.round(data.main.temp); // Pyöristetään lämpötila
+    document.getElementById('temp').textContent = temperature + ' °C';
+    document.getElementById('feels-like').textContent = 'Tuntuu kuin ' + Math.round(data.main.feels_like) + ' °C';
     document.getElementById('humidity').textContent = data.main.humidity + ' %';
     document.getElementById('wind').textContent = data.wind.speed + ' km/h';
+
+    // Haetaan leveys- ja pituusasteet APIsta
+    const latitude = data.coord.lat;
+    const longitude = data.coord.lon;
+    // Luodaan linkki Google Mapsiin
+    const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    // Haetaan coords-link HTML pohjasta
+    const coordsLinkElement = document.getElementById('coords-link');
+    // Asetetaan linkin href-attribuutti
+    coordsLinkElement.href = googleMapsLink;
+    // Asetetaan linkin tekstiksi pyöristetyt koordinaatit
+    coordsLinkElement.textContent = `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`;
+    // Asetetaan linkki näkyviin käyttäjälle
+    coordsLinkElement.style.display = 'inline';
 
     // Haetaan sääkuva datasta ja luodaan polku kuvalle
     const weatherIcon = getWeatherIcon(data.weather[0].main);
     document.getElementById('weather-icon').src = `images/${weatherIcon}.png`;
 
-    // Tuodaan säätiedot näkyviin
-    document.querySelector('.paikka').style.display = 'block';
-    document.querySelector('.weather').style.display = 'block';
+    // Tuodaan säätiedot näkyviin fade-in efektillä
+    const placeElement = document.querySelector('.paikka');
+    const weatherElement = document.querySelector('.weather');
+
+    // Poistetaan ensin mahdolliset aiemmat fade-in luokat
+    placeElement.classList.remove('fade-in');
+    weatherElement.classList.remove('fade-in');
+
+    // Pakotetaan selain päivittämään muutokset ennen animaation lisäämistä
+    void placeElement.offsetWidth;
+    void weatherElement.offsetWidth;
+
+    // Lisätään fade-in luokka uudelleen
+    placeElement.classList.add('fade-in');
+    weatherElement.classList.add('fade-in');
+
+    placeElement.style.display = 'block';
+    weatherElement.style.display = 'block';
 }
 
 // Palauttaa sään kuvan annetujen tietojen perusteella

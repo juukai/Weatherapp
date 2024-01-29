@@ -82,7 +82,7 @@ body {
 .content-wrapper {
     background-color: rgba(214, 90, 142, 0.8);
     padding: 20px;
-    padding-bottom: 45px;
+    padding-bottom: 55px;
     margin: 20px auto;
     border-radius: 15px;
     width: 70%;
@@ -90,3 +90,11 @@ body {
     max-width: 425px;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 2s;
+}
