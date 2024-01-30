@@ -32,10 +32,13 @@ body {
     margin: 0 10px;
     padding-right: 30px;
     padding-left: 30px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .column img {
-    width: 50px;
+    width: 70px;
+    height: 70px;
 }
 
 #temp {
@@ -62,7 +65,8 @@ body {
 }
 
 #search-button {
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     padding: 5px 15px;
     border-radius: 10px;
     border: 5px solid transparent;
@@ -110,4 +114,28 @@ body {
 
 .fade-in {
     animation: fadeIn 2s;
+}
+
+#coords-link {
+    font-size: 20px;
+    color: #2b6db9; 
+    text-decoration: none;
+  }
+  
+  #coords-link:hover {
+    color: #ffffff;
+  }
+
+  .humidity + p,
+  .wind + p {
+    font-weight: bold;
+    vertical-align: middle;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .column {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
 }
