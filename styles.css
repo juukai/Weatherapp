@@ -1,13 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("pinkki.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("images/pinkki.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
 
 .search {
-    margin-top: 40px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .weather {
@@ -15,7 +18,7 @@ body {
 }
 
 .weather-icon {
-    width: 150px;
+    width: 125px;
     margin-top: 10px;
 }
 
@@ -25,7 +28,10 @@ body {
 }
 
 .column {
+    font-size: 20px;
     margin: 0 10px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .column img {
@@ -39,6 +45,7 @@ body {
 #city {
     font-size: 35px;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 #feels-like {
@@ -46,6 +53,7 @@ body {
 }
 
 #city-input {
+    margin-right: 10px;
     font-size: 16px;
     padding: 10px 15px;
     border-radius: 10px;
@@ -55,26 +63,31 @@ body {
 
 #search-button {
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 5px 15px;
     border-radius: 10px;
-    border: none;
+    border: 5px solid transparent;
     cursor: pointer;
-    background-color: hsl(106, 84%, 41%);
-    color: white;
+    background-color: hsl(320, 92%, 75%);
+    color: rgb(0, 0, 0);
+    outline: 2px solid currentColor;
+    border-color: 5px solid transparent;
+    transition: 500ms;
 }
 
 #search-button:hover {
-    background-color: hsl(106, 84%, 35%);
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 .banner {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 20px;
 }
 
 .banner img {
+    max-width: 100%;
     width: 500px;
     height: auto;
 }
@@ -82,11 +95,11 @@ body {
 .content-wrapper {
     background-color: rgba(214, 90, 142, 0.8);
     padding: 20px;
-    padding-bottom: 55px;
+    padding-bottom: 30px;
     margin: 20px auto;
     border-radius: 15px;
     width: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     max-width: 425px;
 }
 

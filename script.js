@@ -70,7 +70,7 @@ function updateWeatherDetails(data) {
     document.getElementById('city').textContent = data.name;
     const temperature = Math.round(data.main.temp); // Pyöristetään lämpötila
     document.getElementById('temp').textContent = temperature + ' °C';
-    document.getElementById('feels-like').textContent = 'Tuntuu kuin ' + Math.round(data.main.feels_like) + ' °C';
+    document.getElementById('feels-like').textContent = '(Tuntuu kuin ' + Math.round(data.main.feels_like) + ' °C)';
     document.getElementById('humidity').textContent = data.main.humidity + ' %';
     document.getElementById('wind').textContent = data.wind.speed + ' km/h';
 
