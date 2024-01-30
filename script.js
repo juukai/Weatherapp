@@ -1,8 +1,16 @@
 // Kuuntelija DOMille
 document.addEventListener('DOMContentLoaded', function() {
+
     // Piilotetaan säätiedot
     document.querySelector('.paikka').style.display = 'none';
     document.querySelector('.weather').style.display = 'none';
+
+    // Uusi kursori
+    new kursor({
+        type: 2,
+        color: '#219fd1',
+        removeDefaultCursor: true
+    })
 });
 
 // Etsitään hakukenttä elementti
@@ -20,10 +28,12 @@ document.getElementById('search-button').addEventListener('click', function() {
     fetchWeatherData(city);
 });
 
-// Kuuntelija hakukentälle
+// Kuuntelija Enter-näppäimelle hakukentässä
 document.getElementById('city-input').addEventListener('keypress', function(event) {
-   if (event.keyCode === 13) { // 13 = Enter-näppäin
-    fetchWeatherData(this.value); // Suoritetaan haku annetuilla arvoilla
+    // 13 = Enter-näppäin
+   if (event.keyCode === 13) {
+    // Suoritetaan haku annetuilla arvoilla
+    fetchWeatherData(this.value);
    }
 });
 
