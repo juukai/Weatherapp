@@ -44,7 +44,7 @@ function fetchWeatherData(city) {
 
         // Lisätään tarkistus, onko hakukenttä tyhjä
         if (city.trim() === '') {
-            alert('Anna kaupungin/maan nimi ennen haun suorittamista.');
+            alert('Anna paikan nimi ennen haun suorittamista.');
             resetWeatherDetails();
             return;
         }
@@ -62,7 +62,7 @@ function fetchWeatherData(city) {
         })
         .catch(error => {
             console.error("Virhe haettaessa säätietoja: ", error);
-            alert('Säätietoja ei löytynyt. Tarkista kaupungin/maan nimi ja yritä uudelleen.');
+            alert('Säätietoja ei löytynyt. Tarkista paikan nimi ja yritä uudelleen.');
             resetWeatherDetails();
 
         // Tyhjennä hakukenttä virheilmoituksen jälkeen
@@ -93,8 +93,8 @@ function updateWeatherDetails(data) {
     const coordsLinkElement = document.getElementById('coords-link');
     // Asetetaan linkin href-attribuutti
     coordsLinkElement.href = googleMapsLink;
-    // Asetetaan linkin tekstiksi pyöristetyt koordinaatit
-    coordsLinkElement.textContent = `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`;
+    // Asetetaan coordsLinkElementin tekstisisällöksi leveys- ja pituusasteet
+    coordsLinkElement.textContent = `${latitude}, ${longitude}`;
     // Asetetaan linkki näkyviin käyttäjälle
     coordsLinkElement.style.display = 'inline';
 
@@ -118,6 +118,7 @@ function updateWeatherDetails(data) {
     placeElement.classList.add('fade-in');
     weatherElement.classList.add('fade-in');
 
+    // Elementit näkyviksi
     placeElement.style.display = 'block';
     weatherElement.style.display = 'block';
 }

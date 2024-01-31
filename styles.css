@@ -4,6 +4,8 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("images/pinkki.jpg");
     background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Tämä korjasi kursorissa olleen ongelman, eli varmistettiin että body elementti venyy koko näytön korkeudelle vaikka sivulla ei ole kontenttia */
 }
 
 .search {
